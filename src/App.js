@@ -16,7 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React Course Manager
+          Learn React Course Manager Flux
         </a>
       </header>
     </div>
