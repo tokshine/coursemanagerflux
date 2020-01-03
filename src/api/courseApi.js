@@ -8,18 +8,23 @@ export function getCourses() {
     .then(response => {
       if (!response.ok) throw new Error("Network response was not ok.");
       return response.json().then(courses => {
-        return courses.map(course => {
-          let newItem = Object.assign({}, course);
-          authorApi.getAuthor(course.authorId).then(au => {
-            newItem.authorName = au.name;
-          });          
-          return newItem;          
-          // newItem.authorName = "shina"; //adding a dynamic property to course
-        });
+        return courses;
+        //return courses.map(course => {
+        // let newItem = Object.assign({}, course);
+        // authorApi.getAuthor(course.authorId).then(au => {
+        //   newItem.authorName = au.name;
+        // });
+        // return newItem;
+
+        // newItem.authorName = "shina"; //adding a dynamic property to course
+        // });
       });
     })
     .catch(handleError);
 }
+
+
+
 
 export function getCourseBySlug(slug) {
   return fetch(baseUrl + "?slug=" + slug)
